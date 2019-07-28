@@ -49,5 +49,12 @@ class UsersTableSeeder extends Seeder
         $user->password = '$2y$10$O7vuP4Fs1iQ5c0VhLh6oo.yi2jjVI3NnVLoXkJ9tl9YXZj4iI0GpC';
         $user->avatar = 'https://cdn.learnku.com/uploads/images/201710/14/1/ZqM7iaP4CR.png';
         $user->save();
+
+        // 初始化用户角色，将 1 号用户指派为『站长』
+        $user->assignRole('Founder');
+
+        // 将 2 号用户指派为『管理员』
+        $user = User::find(2);
+        $user->assignRole('Maintainer');
     }
 }
